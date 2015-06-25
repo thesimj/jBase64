@@ -13,9 +13,9 @@ public class jBase64Test extends Assert{
 //    private byte [] input_t1 = null;
 //    private byte [] input_t2 = null;
 //    private byte [] input_t3 = null;
-    private static byte [] input_t1 = new byte[255+0];
-    private static byte [] input_t2 = new byte[255+1];
-    private static byte [] input_t3 = new byte[255+2];
+    private static byte [] input_t1 = new byte[512+1];
+    private static byte [] input_t2 = new byte[512+2];
+    private static byte [] input_t3 = new byte[512+3];
 
     @Before
     public void setUp(){
