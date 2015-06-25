@@ -60,7 +60,6 @@ public class jBase64Test extends Assert{
     }
 
     @Test
-    @Ignore
     public void testDecode() throws Exception {
 
         // With padding //
