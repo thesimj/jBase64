@@ -17,7 +17,6 @@
         <junit.version>4.12</junit.version>
     </properties>
 
-
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
