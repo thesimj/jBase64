@@ -10,26 +10,25 @@ import java.util.Random;
 
 public class jBase64Test extends Assert{
 
-    private byte [] input_t1 = null;
-    private byte [] input_t2 = null;
-    private byte [] input_t3 = null;
-//    private static byte [] input_t1 = new byte[1024+0];
-//    private static byte [] input_t2 = new byte[1024+1];
-//    private static byte [] input_t3 = new byte[1024+2];
+//    private byte [] input_t1 = null;
+//    private byte [] input_t2 = null;
+//    private byte [] input_t3 = null;
+    private static byte [] input_t1 = new byte[255+0];
+    private static byte [] input_t2 = new byte[255+1];
+    private static byte [] input_t3 = new byte[255+2];
 
     @Before
     public void setUp(){
 
         Random rnd = new Random();
 
-//        rnd.nextBytes(input_t1);
-//        rnd.nextBytes(input_t2);
-//        rnd.nextBytes(input_t3);
+        rnd.nextBytes(input_t1);
+        rnd.nextBytes(input_t2);
+        rnd.nextBytes(input_t3);
 
     }
 
     @Test
-    @Ignore
     public void testEncode() throws Exception {
 
         // For one byte //
