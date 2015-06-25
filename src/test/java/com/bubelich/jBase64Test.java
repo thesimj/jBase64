@@ -1,16 +1,29 @@
 package com.bubelich;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import javax.xml.bind.DatatypeConverter;
 import java.security.SecureRandom;
+import java.util.Random;
 
 public class jBase64Test extends Assert{
 
-    private static byte [] input_t1 = SecureRandom.getSeed(3*1024 + 0);
-    private static byte [] input_t2 = SecureRandom.getSeed(3*1024 + 1);
-    private static byte [] input_t3 = SecureRandom.getSeed(3*1024 + 2);
+    private static byte [] input_t1 = new byte[10*1024+1];
+    private static byte [] input_t2 = new byte[10*1024+2];
+    private static byte [] input_t3 = new byte[10*1024+3];
+
+    @Before
+    public void setUp(){
+
+        Random rnd = new Random();
+
+        rnd.nextBytes(input_t1);
+        rnd.nextBytes(input_t2);
+        rnd.nextBytes(input_t3);
+
+    }
 
     @Test
     public void testEncode() throws Exception {
@@ -36,12 +49,10 @@ public class jBase64Test extends Assert{
         // For null //
         try { jBase64.encode(null, jBase64.ALPHABET.BASE); }
         catch (NullPointerException ex){ /* OK */}
-        catch (Exception ex){ throw ex; }
 
         // Empty byte //
         try { jBase64.encode(new byte[]{}, jBase64.ALPHABET.BASE); }
         catch (RuntimeException ex){ /* OK */}
-        catch (Exception ex){ throw ex; }
 
     }
 
@@ -76,16 +87,13 @@ public class jBase64Test extends Assert{
 
         try { jBase64.decode(null, jBase64.ALPHABET.BASE,true); }
         catch (NullPointerException ex){ /* OK */}
-        catch (Exception ex){ throw ex; }
 
         // Wrong padding //
         try { jBase64.decode("YW55IGNhcm5hbCBwbGVhcw=x", jBase64.ALPHABET.BASE, true); }
         catch (IllegalArgumentException ex){ /* OK */}
-        catch (Exception ex){ fail("Something wrong"); }
 
         try { jBase64.decode("YW55IGNhcm5hbCBwbGVhcw=x", jBase64.ALPHABET.BASE,true); }
         catch (IllegalArgumentException ex){ /* OK */}
-        catch (Exception ex){ fail("Something wrong"); }
 
     }
 }
