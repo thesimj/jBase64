@@ -1,4 +1,4 @@
-# Really fast Java implementation of Base64 Encoding
+# Fast Java implementation of Base64 Encoding
 [![Build Status](https://travis-ci.org/thesimj/jBase64.svg?branch=master)](https://travis-ci.org/thesimj/jBase64)
 
 Base64 encoder/decoder written in Java.
